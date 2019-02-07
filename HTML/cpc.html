@@ -1,0 +1,215 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./jquery-3.2.1.js.download"></script>
+<link rel="stylesheet" href="./tachyons.min.css">
+<script src="./vue"></script>
+<style type="text/css">
+.bob {
+  width: 300px;
+  color: white;
+}
+.larry {
+  color: rgba(0,200,0,1);
+}
+</style>
+</head>
+<body class="bg-black">
+<div class="bg-black larry" id="cont">
+<h1 class="red">Total Percent Complete: {{valend}}%</h4>
+<br />
+<h2 class="blue">Hardware		{{ hw }}/30%</h2>
+<div class="bob fl trs">1)Hardware design			               </div>- 35% <input type="checkbox" class="hw" id="hw-hd-35" percent="35" /><br />
+<div class="bob fl trs">2)	Purchasing				               </div>- 15% <input type="checkbox" class="hw" id="hw-pr-15" percent="15" /><br />
+<div class="bob fl trs">3)	Design approval(Internal)	           </div>- 15% <input type="checkbox" class="hw" id="hw-da-15" percent="15" /><br />
+<div class="bob fl trs">4)	Customer approval(external)		       </div>- 20% <input type="checkbox" class="hw" id="hw-ca-20" percent="20" /><br />
+<div class="bob fl trs">5)	Build					               </div>- 15% <input type="checkbox" class="hw" id="hw-bu-15" percent="15" /><br />
+<br />
+<h2 class="blue">Software		{{ sf }}/50%</h2><br />
+<div class="bob fl trs">1)	Input & Output Mapping		           </div>- 20% <input type="checkbox" class="sf" id="sf-io-20" percent="20" /><br />
+<div class="bob fl trs">2)	Offline programming			           </div>- 30% <input type="checkbox" class="sf" id="sf-op-30" percent="30" /><br />
+<div class="bob fl trs">3)	Node Commissioning			           </div>- 30% <input type="checkbox" class="sf" id="sf-nc-30" percent="30" /><br />
+<div class="bob fl trs">4)	Online testing & function validation   </div>- 10% <input type="checkbox" class="sf" id="sf-ot-10" percent="10" /><br />
+<div class="bob fl trs">5)	Production HMI				           </div>- 10% <input type="checkbox" class="sf" id="sf-ph-10" percent="10" /><br />
+<br />
+<h2 class="blue">Support		{{ sp }}/10%</h2><br />
+<div class="bob fl trs">1)	Install support				           </div>- 70% <input type="checkbox" class="sp" id="sp-is-70" percent="70" /><br />
+<div class="bob fl trs">2)	On-site support(within scope)          </div>- 10% <input type="checkbox" class="sp" id="sp-os-10" percent="10" /><br />
+<div class="bob fl trs">3)	Post-Install support			       </div>- 20% <input type="checkbox" class="sp" id="sp-ps-20" percent="20" /><br />
+<br />
+<h2 class="blue">Runoff		{{ ro }}/10%</h2><br />
+<div class="bob fl trs">1)	Internal run-off	                   </div>- 90% <input type="checkbox" class="ro" id="ro-ir-90" percent="90" /><br />
+<div class="bob fl trs">2)	Customer run-off and final sign off	   </div>- 10% <input type="checkbox" class="ro" id="ro-cr-10" percent="10" /><br />
+<br />
+<br />
+<br />
+{{value}}
+</div>
+<script type="text/javascript">
+$(document).click(recompute);
+$(document).ready(ReadFile);
+var vw = new Vue({
+    el: '#cont',
+    data: {
+        hw: 0,
+        sf: 0,
+        sp: 0,
+        ro: 0,
+        valend: 0,
+        value: ""
+    }
+});
+function recompute() {
+  var hw=0;
+  jQuery.each($(".hw"), function( i, val) {
+    if($(".hw")[i].checked) {
+      var hwstr = $(".hw")[i].id;
+      var hwprcnt = hwstr.substring((hwstr.length-2), (hwstr.length+1));
+      var hwresult = parseInt(hwprcnt);
+      hw+=hwresult;
+    }
+  });
+  vw.hw = (hw*0.3);
+  var sf=0;
+  jQuery.each($(".sf"), function( i, val) {
+    if($(".sf")[i].checked) {
+      var sfstr = $(".sf")[i].id;
+      var sfprcnt = sfstr.substring((sfstr.length-2), (sfstr.length+1));
+      var sfresult = parseInt(sfprcnt);
+      sf+=sfresult;
+    }
+  });
+  vw.sf = (sf*0.5);
+  var sp=0;
+  jQuery.each($(".sp"), function( i, val) {
+    if($(".sp")[i].checked) {
+      var spstr = $(".sp")[i].id;
+      var spprcnt = spstr.substring((spstr.length-2), (spstr.length+1));
+      var spresult = parseInt(spprcnt);
+      sp+=spresult;
+    }
+  });
+  vw.sp = (sp*0.1);
+  var ro=0;
+  jQuery.each($(".ro"), function( i, val) {
+    if($(".ro")[i].checked) {
+      var rostr = $(".ro")[i].id;
+      var roprcnt = rostr.substring((rostr.length-2), (rostr.length+1));
+      var roresult = parseInt(roprcnt);
+      ro+=roresult;
+    }
+  });
+  vw.ro = (ro*0.1);
+  vw.valend=vw.hw+vw.sf+vw.sp+vw.ro;
+  console.log(hw);
+  save(hw,"log.txt");
+}
+function save() {
+  var file = new File([""], "ctrlsprog.log");
+  var hw = $(".hw");
+  var sf = $(".sf");
+  var sp = $(".sp");
+  var ro = $(".ro");
+  var text;
+  var i;
+
+  for(i=0;i<5;i++) {
+    text += (hw[i].checked + "/n");
+    console.log(hw[i].checked);
+  }
+  for(i=0;i<5;i++) {
+    text += (sf[i].checked + "/n");
+  }
+  for(i=0;i<3;i++) {
+    text += (sp[i].checked + "/n");
+  }
+  for(i=0;i<2;i++) {
+    text += (ro[i].checked + "/n");
+  }
+  file.open();
+  file.write(text);
+  file.close();
+}
+
+function ReadFile() {
+  navigator.webkitPersistentStorage.requestQuota(1024*1024, function(grantedBytes) {
+      window.webkitRequestFileSystem(PERSISTENT, grantedBytes, onInitFsRD);
+    }, function(e) {
+      console.log('Error', e);
+    });
+}
+
+function onInitFsRD(fs) {
+
+  fs.root.getFile('log.txt', {}, function(fileEntry) {
+
+    // Get a File object representing the file,
+    // then use FileReader to read its contents.
+    fileEntry.file(function(file) {
+       var reader = new FileReader();
+
+       reader.onloadend = function(e) {
+         vw.value = this.result;
+       };
+
+       reader.readAsText(file);
+    }, errorHandler);
+
+  }, errorHandler);
+
+}
+
+function saveFile(content, filename, contentType)
+{
+    if(!contentType) contentType = 'text/plain';
+        var a = document.createElement('a');
+        var blob = new Blob([content], {'type':contentType});
+        a.href = window.URL.createObjectURL(blob);
+        a.download = filename;
+        a.click();
+}
+
+function save(content, filename) {
+  var file;
+  var data = [];
+  data.push(content);
+  var properties = {type: 'text/plain'}; // Specify the file's mime-type.
+  try {
+    // Specify the filename using the File constructor, but ...
+    file = new File(data, filename, properties);
+  } catch (e) {
+    // ... fall back to the Blob constructor if that isn't supported.
+    file = new Blob(data, properties);
+  }
+  var url = URL.createObjectURL(file);
+  var a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  a.click();
+  a=null;
+}
+
+
+function load() {
+  var file = new File([""], "ctrlsprog.log");
+  var i;
+
+  file.open("r");
+  for(i=0;i<5;i++) {
+    $(".hw")[i].checked = text.readln();
+  }
+  for(i=0;i<5;i++) {
+    $(".sf")[i].checked = text.readln();
+  }
+  for(i=0;i<3;i++) {
+    $(".sp")[i].checked = text.readln();
+  }
+  for(i=0;i<2;i++) {
+    $(".ro")[i].checked = text.readln();
+  }
+  file.close();
+}
+</script>
+</body>
+</html>

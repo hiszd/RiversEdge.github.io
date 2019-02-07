@@ -1,0 +1,78 @@
+body {
+    height: 100%;
+    width: 100%;
+}
+.beg {
+    background-image: url("IMG_4199.png");
+    //background-image: radial-gradient(circle, #CCCCCC 40%, #FFFFFF 55%, #a2a2a2 80%);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.wrapper {
+    display: grid;
+    grid-template-rows: 1fr 10fr 88fr 1fr;
+    grid-template-columns: 1fr 8fr 1fr;
+}
+.body {
+    grid-column: 2;
+    grid-row: 3/5;
+    background-color: rgba(25,25,25,0.9);
+}
+.head {
+    grid-column: 1/4;
+    grid-row: 2;
+}
+.top {
+    grid-column: 1/4;
+    grid-row: 0/1;
+}
+.bottom {
+    grid-column: 1/4;
+    grid-row: 3/5;
+    background-color: black;
+}
+.headcont {
+    background-image: linear-gradient(to right, rgba(25,25,25,0.4), rgba(25,25,25,0.9) 5%, rgba(25,25,25,0.9) 95%, rgba(25,25,25,0.4) 100%);
+}
+.wpct-2 {
+    width: 2%;
+}
+.wpct-5 {
+    width: 5%;
+}
+.wpct-10 {
+    width: 10%;
+}
+.wpct-20 {
+    width: 20%;
+}
+.wpct-80 {
+    width: 80%;
+}
+.wpct-100 {
+    height: 100%;
+}
+.hpct-100 {
+    height: 100%;
+}
+.hpct-50 {
+    height: 50%;
+}
+.hpct-40 {
+    height: 40%;
+}
+.hpct-30 {
+    height: 30%;
+}
+.hpct-25 {
+    height: 25%;
+}
+.hpct-10 {
+    height: 10%;
+}
+.hpct-5 {
+    height: 5%;
+}
+.hpx-150 {
+    height: 150px;
+}
