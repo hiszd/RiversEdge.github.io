@@ -3,7 +3,7 @@ body {
     width: 100%;
 }
 .beg {
-    background-image: url("IMG_4199.png");
+    background-image: url("RECC_BG.png");
     //background-image: radial-gradient(circle, #CCCCCC 40%, #FFFFFF 55%, #a2a2a2 80%);
     background-repeat: no-repeat;
     background-size: cover;
