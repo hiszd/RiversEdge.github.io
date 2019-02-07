@@ -1,6 +1,8 @@
 body {
-    height: 100%;
-    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    height: 100vh;
+    width: 100vw;
 }
 .beg {
     background-image: url("RECC_BG.png");
@@ -9,30 +11,47 @@ body {
     background-size: cover;
 }
 .wrapper {
+    height: 100vh;
+    width: 100vw;
     display: grid;
-    grid-template-rows: 1fr 10fr 88fr 1fr;
-    grid-template-columns: 1fr 8fr 1fr;
+    grid-template-rows: repeat(20, 1fr);
+    grid-template-columns: repeat(20, 1fr);
 }
 .body {
-    grid-column: 2;
-    grid-row: 3/5;
+    grid-column: 2/20;
+    grid-row: 2/20;
     background-color: rgba(25,25,25,0.9);
 }
 .head {
-    grid-column: 1/4;
-    grid-row: 2;
-}
-.top {
-    grid-column: 1/4;
-    grid-row: 0/1;
-}
-.bottom {
-    grid-column: 1/4;
-    grid-row: 3/5;
-    background-color: black;
+    background-color: rgba(25,25,25,0.9);
 }
 .headcont {
-    background-image: linear-gradient(to right, rgba(25,25,25,0.4), rgba(25,25,25,0.9) 5%, rgba(25,25,25,0.9) 95%, rgba(25,25,25,0.4) 100%);
+    grid-column: 2/20;
+    grid-row: 1;
+    margin-top: 1%;
+}
+.head-l {
+    grid-column: 1/2;
+    grid-row: 1;
+    margin-top: 18%;
+    background-image: linear-gradient(to left, rgba(25,25,25,0.9), rgba(25,25,25,0.9) 5%, rgba(25,25,25,0.4) 100%);
+    border-image: linear-gradient(to left, rgba(255,255,255,0.9), rgba(255,255,255,0.9) 5%, rgba(255,255,255,0.4) 100%);
+}
+.head-r {
+    grid-column: 20/21;
+    grid-row: 1;
+    margin-top: 18%;
+    background-image: linear-gradient(to right, rgba(25,25,25,0.9), rgba(25,25,25,0.9) 5%, rgba(25,25,25,0.4) 100%);
+}
+.headr-border {
+    background-image: linear-gradient(to right, rgba(255,255,255,0.9), rgba(255,255,255,0.9) 5%, rgba(255,255,255,0.4) 100%);
+}
+.headl-border {
+    background-image: linear-gradient(to left, rgba(255,255,255,0.9), rgba(255,255,255,0.9) 5%, rgba(255,255,255,0.4) 100%);
+}
+.border-gradient-single {
+    height: 1px;
+    width: 100%;
 }
 .wpct-2 {
     width: 2%;
