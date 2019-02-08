@@ -17,6 +17,11 @@ body {
     grid-template-rows: repeat(20, 1fr);
     grid-template-columns: repeat(20, 1fr);
 }
+.main-text {
+    font-family: reklamescriptw00-medium,cursive;
+    font-size: 87px;
+    width: 700px;
+}
 .body {
     grid-column: 2/20;
     grid-row: 2/20;
