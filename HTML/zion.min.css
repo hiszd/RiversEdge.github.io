@@ -19,21 +19,28 @@ body {
 }
 .main-text {
     font-family: reklamescriptw00-medium,cursive;
-    font-size: 87px;
-    width: 700px;
+    grid-column: 7/15;
+    grid-row: 2/4;
+}
+.pr-10 {
+    padding-right: 10rem;
 }
 .body {
     grid-column: 2/20;
     grid-row: 2/20;
     background-color: rgba(25,25,25,0.9);
 }
+.
 .head {
-    background-color: rgba(25,25,25,0.9);
+    grid-column: 3/19;
+    grid-row: 1;
+    margin-top: 1%;
 }
 .headcont {
     grid-column: 2/20;
     grid-row: 1;
     margin-top: 1%;
+    background-color: rgba(25,25,25,0.9);
 }
 .head-l {
     grid-column: 1/2;
