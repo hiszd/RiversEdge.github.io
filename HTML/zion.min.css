@@ -20,17 +20,33 @@ body {
 .main-text {
     font-family: reklamescriptw00-medium,cursive;
     grid-column: 7/15;
-    grid-row: 2/4;
+    grid-row: 2/9;
 }
 .pr-10 {
     padding-right: 10rem;
 }
+.f2-5 {
+    font-size: 2rem;
+}
+.divider {
+    grid-column: 7/15;
+    grid-row: 10;
+}
+.invite {
+    grid-column: 9/13;
+    grid-row: 11;
+}
+.futura {
+       font-family: futura-lt-w01-book, sans-serif;
+}
 .body {
     grid-column: 2/20;
     grid-row: 2/20;
-    background-color: rgba(25,25,25,0.9);
+    //background-color: rgba(25,25,25,0.9);
 }
-.
+.bgg {
+    background-color: rgba(25,25,25,0.9);   
+}
 .head {
     grid-column: 3/19;
     grid-row: 1;
@@ -43,6 +59,7 @@ body {
     background-color: rgba(25,25,25,0.9);
 }
 .head-l {
+    display: grid;
     grid-column: 1/2;
     grid-row: 1;
     margin-top: 18%;
@@ -50,6 +67,7 @@ body {
     border-image: linear-gradient(to left, rgba(255,255,255,0.9), rgba(255,255,255,0.9) 5%, rgba(255,255,255,0.4) 100%);
 }
 .head-r {
+    display: grid;
     grid-column: 20/21;
     grid-row: 1;
     margin-top: 18%;
