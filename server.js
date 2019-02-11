@@ -13,6 +13,10 @@ app.get('/', function (req, res) {
     res.sendFile("/HTML/index.html");
 });
 
+app.get('/icampus/', function (req, res) {
+    res.sendFile("/HTML/icampus.html");
+});
+
 io.on('connection', function(socket) {
     console.log('a user connected');
     socket.on('disconnect', function(){
