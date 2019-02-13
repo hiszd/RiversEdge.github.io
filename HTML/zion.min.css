@@ -10,7 +10,12 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
 }
+.stf {
+    height: 500px;
+}
 .wrapper {
+    z-index: 999;
+    position: absolute;
     height: 100vh;
     width: 100vw;
     display: grid;
@@ -30,11 +35,11 @@ body {
 }
 .divider {
     grid-column: 7/15;
-    grid-row: 10;
+    grid-row: 8;
 }
 .invite {
     grid-column: 9/13;
-    grid-row: 11;
+    grid-row: 9;
 }
 .futura {
        font-family: futura-lt-w01-book, sans-serif;
@@ -50,7 +55,6 @@ body {
 .head {
     grid-column: 3/19;
     grid-row: 1;
-    margin-top: 1%;
 }
 .headcont {
     grid-column: 2/20;
@@ -104,6 +108,9 @@ body {
 .hpct-100 {
     height: 100%;
 }
+.hpct-80 {
+    height: 80%;
+}
 .hpct-50 {
     height: 50%;
 }
@@ -115,6 +122,9 @@ body {
 }
 .hpct-25 {
     height: 25%;
+}
+.hpct-20 {
+    height: 20%;
 }
 .hpct-10 {
     height: 10%;
