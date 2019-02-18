@@ -13,11 +13,14 @@ p {
     //background-image: radial-gradient(circle, #CCCCCC 40%, #FFFFFF 55%, #a2a2a2 80%);
     background-repeat: no-repeat;
     background-size: cover;
+    z-index: 1;
 }
 .stf {
-    height: 500px;
+    position: fixed;
+    z-index: 999;
 }
 .wrapper {
+    z-index: 1;
     position: absolute;
     height: 100vh;
     width: 100vw;
