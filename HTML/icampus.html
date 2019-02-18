@@ -8,17 +8,17 @@
     <link rel="stylesheet" href="tachyons.min.css">
     <link rel="stylesheet" href="zion.min.css">
     <title>iCampus - Rivers Edge Community Church</title>
-    <script src="vue"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="/socket.io/socket.io.js"></script>
-    <script type="text/javascript" src="icampus.js"></script>
     <link rel="stylesheet" href="languages.css">
   </head>
   <body class="beg vw-100 vh-100 f6 sans-serif">
     <div class="w-100 h-100 z-1 pt6 flex items-baseline justify-center">
-      <div class="bgg w-50 h-75 flex items-baseline justify-center">
-	<div id="text" class="w-100 hpct-80 bg-gray"></div>
-	<div class="w-100 hpct-20 bg-blue"></div>
+      <div class="bgg w-50 h-75 flex flex-column items-baseline justify-center">
+	<div id="text" v-html="messages" class="w-100 outline hpct-80 bg-gray overflow-y-scroll"></div>
+	<div id="app" class="w-100 hpct-20 bg-blue outline"><input type="text" class="w-100 h-100 bg-blue" style="border: none;" /></div>
       </div>
     </div>
+    <script type="text/javascript" src="icampus.js"></script>
   </body>
 </html>

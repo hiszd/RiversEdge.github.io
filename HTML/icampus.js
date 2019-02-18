@@ -1,3 +1,27 @@
+var app = new Vue({
+    el:'#app',
+    data: {
+	head: '<p>',
+	end: '</p>'
+    },
+    computed: {
+	messages: function() {
+	    return "Hello Vue!";
+	}
+    }
+});
+var app = new Vue({
+    el:'#text',
+    data: {
+	head: '<p>',
+	end: '</p>'
+    },
+    computed: {
+	messages: function() {
+	    return this.head + "Hello Vue!" + this.end;
+	}
+    }
+});
 $(function () {
     var socket = io.connect('/icampus'),
 	uni = io.connect('/uni');
